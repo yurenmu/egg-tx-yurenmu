@@ -1,0 +1,75 @@
+{
+  "name": "egg-tx-yurenmu",
+  "version": "1.0.8",
+  "description": "egg 事务插件",
+  "eggPlugin": {
+    "name": "tx",
+    "optionalDependencies": [
+      "sequelize",
+      "mongoose"
+    ]
+  },
+  "keywords": [
+    "egg",
+    "eggPlugin",
+    "egg-plugin",
+    "egg-tx"
+  ],
+  "dependencies": {
+    "acorn": "^6.2.1",
+    "lodash": "^4.17.4",
+    "npminstall": "^3.23.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg": "^2.16.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.13.0",
+    "eslint-config-egg": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
+    "pkgfiles": "egg-bin pkgfiles",
+    "dev": "egg-bin dev",
+    "autod": "autod"
+  },
+  "files": [
+    "app",
+    "lib",
+    "config",
+    "app.js",
+    "commitlint.config.js"
+  ],
+  "ci": {
+    "version": "8, 10"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm test"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yurenmu/egg-tx-yurenmu"
+  },
+  "bugs": {
+    "url": "https://github.com/yurenmu/egg-tx-yurenmu/issues"
+  },
+  "homepage": "https://github.com/yurenmu/egg-tx-yurenmu/blob/main/README.md",
+  "author": "lyTongXue",
+  "license": "MIT"
+}
